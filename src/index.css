@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: #FAFAF7;
+    color: #0A0A0A;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+}
+
+@layer components {
+  /* Hero ticker animations */
+  .ticker-row {
+    display: flex;
+    gap: 14px;
+    padding: 7px 0;
+    width: max-content;
+  }
+
+  .ticker-row-1 { animation: ticker 28s linear infinite; }
+  .ticker-row-2 { animation: ticker2 34s linear infinite; }
+  .ticker-row-3 { animation: ticker 22s linear infinite reverse; }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes ticker2 {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  .ticker-paused { animation-play-state: paused !important; }
+
+  /* Glow pulse */
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.2); }
+  }
+
+  .glow-pulse {
+    animation: pulseGlow 5s ease-in-out infinite;
+  }
+
+  /* popIn animation for thank you page */
+  @keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    80% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .pop-in {
+    animation: popIn 0.5s ease forwards;
+  }
+
+  /* Section eyebrow */
+  .section-eyebrow {
+    @apply text-[11px] font-semibold tracking-[0.12em] uppercase text-teal flex items-center gap-2.5 mb-3.5;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    @apply inline-block w-5 h-px bg-teal flex-shrink-0;
+  }
+
+  /* FAQ max-height transition */
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .faq-answer.open {
+    max-height: 300px;
+  }
+
+  /* Service card animation */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Step fade */
+  .step-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .step-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
