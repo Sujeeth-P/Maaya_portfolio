@@ -35,7 +35,7 @@ export default function Why({ onOpenModal }) {
         {/* Left text */}
         <div>
           {/* <div className="section-eyebrow">Why Maayay</div> */}
-          <h2 className="font-display text-[clamp(28px,3.5vw,48px)] font-extrabold tracking-[-0.03em] leading-[1.1] text-[#0A0A0A] mb-3">
+          <h2 style={{color:"white"}} className="font-display text-[clamp(28px,3.5vw,48px)] font-extrabold tracking-[-0.03em] leading-[1.1] text-[#0A0A0A] mb-3">
             Why Choose Maayay
           </h2>
           <p className="pb-7 pt-5 text-[15px] font-light leading-[1.7] text-[#555] max-w-[600px] mb-6">

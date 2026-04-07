@@ -50,7 +50,7 @@ export default function FAQ() {
   const toggle = (i) => setOpenIdx(openIdx === i ? null : i)
 
   return (
-    <section id="faq" className="min-h-screen flex items-center pt-5 pb-10 px-12 max-md:py-16 max-md:px-6">
+    <section id="faq" className="min-h-screen bg-[#F4F1E8] flex items-center pt-5 pb-10 px-12 max-md:py-16 max-md:px-6">
       <div className="max-w-[1280px] mx-auto w-full">
         {/* <div className="section-eyebrow">FAQ</div> */}
         <h2 className="pb-5 text-center font-display text-[clamp(28px,3.5vw,48px)] font-extrabold tracking-[-0.03em] leading-[1.1] text-[#0A0A0A] mb-12">

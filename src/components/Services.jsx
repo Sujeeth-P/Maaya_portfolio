@@ -33,28 +33,27 @@ export default function Services({ onOpenModal }) {
 
         <div className="grid grid-cols-3 gap-4 max-md:grid-cols-1 pt-6">
           {SERVICES.map((svc, i) => (
-            <div
-              key={i}
-              className="service-card-anim bg-white/[0.04] border border-white/10 rounded-[20px] p-7 transition-all duration-300 hover:bg-white/[0.08] hover:border-teal/40"
-            >
-              <div className="w-11 h-11 bg-[rgba(13,158,117,0.15)] rounded-xl flex items-center justify-center mb-5">
-                <div className="w-[20px] h-[20px]">{svc.icon}</div>
+            <div key={i} className="service-parent service-card-anim">
+              <div className="neo-3d-card">
+                <div className="content-box">
+                  <span className="card-title font-display tracking-tight">{svc.cat}</span>
+                  <ul className="card-content font-body">
+                    {svc.items.map((item, j) => (
+                      <li key={j}>{item}</li>
+                    ))}
+                  </ul>
+                  <a
+                    href="#"
+                    onClick={(e) => { e.preventDefault(); onOpenModal() }}
+                    className="see-more"
+                  >
+                    Learn More →
+                  </a>
+                </div>
+                <div className="date-box">
+                  {svc.icon}
+                </div>
               </div>
-              <div className="font-display text-[20px] font-bold text-[#FAFAF7] mb-4 tracking-[-0.02em]">{svc.cat}</div>
-              <ul className="list-none flex flex-col gap-2 mb-6">
-                {svc.items.map((item, j) => (
-                  <li key={j} className="text-sm font-light text-white/60 flex items-center gap-2.5 before:content-[''] before:w-1 before:h-1 before:rounded-full before:bg-teal before:flex-shrink-0">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="#"
-                onClick={(e) => { e.preventDefault(); onOpenModal() }}
-                className="text-[13px] font-medium text-teal no-underline flex items-center gap-1.5 transition-all duration-200 hover:gap-2.5"
-              >
-                Learn More →
-              </a>
             </div>
           ))}
         </div>

@@ -52,10 +52,37 @@ export default function Modal({ isOpen, onClose, onSubmit }) {
       }`}
     >
       <div
-        className={`bg-[#FAFAF7] rounded-3xl w-full max-w-[680px] max-h-[90vh] overflow-y-auto p-12 relative transition-transform duration-[350ms] ease-out max-md:p-8 ${
+        className={`neo-modal w-full max-w-[680px] h-[90vh] max-h-[800px] relative transition-transform duration-[350ms] ease-out ${
           isOpen ? 'translate-y-0 scale-100' : 'translate-y-6 scale-[0.98]'
         }`}
       >
+        {/* ── Neo-Brutalism Background Elements ── */}
+        <div className="card-pattern-grid" />
+        <div className="bold-pattern">
+          <svg viewBox="0 0 100 100">
+            <path strokeDasharray="15 10" strokeWidth={10} stroke="#000" fill="none" d="M0,0 L100,0 L100,100 L0,100 Z" />
+          </svg>
+        </div>
+        <div className="dots-pattern">
+          <svg viewBox="0 0 80 40">
+            <circle fill="#0A0A0A" r={3} cy={10} cx={10} />
+            <circle fill="#0A0A0A" r={3} cy={10} cx={30} />
+            <circle fill="#0A0A0A" r={3} cy={10} cx={50} />
+            <circle fill="#0A0A0A" r={3} cy={10} cx={70} />
+            <circle fill="#0A0A0A" r={3} cy={20} cx={20} />
+            <circle fill="#0A0A0A" r={3} cy={20} cx={40} />
+            <circle fill="#0A0A0A" r={3} cy={20} cx={60} />
+            <circle fill="#0A0A0A" r={3} cy={30} cx={10} />
+            <circle fill="#0A0A0A" r={3} cy={30} cx={30} />
+            <circle fill="#0A0A0A" r={3} cy={30} cx={50} />
+            <circle fill="#0A0A0A" r={3} cy={30} cx={70} />
+          </svg>
+        </div>
+        <div className="accent-shape" />
+        <div className="corner-slice" />
+
+        {/* ── Scrollable Content Area ── */}
+        <div className="relative z-20 w-full h-full overflow-y-auto p-12 max-md:p-8">
         {/* Close button */}
         <button
           onClick={onClose}
@@ -81,7 +108,7 @@ export default function Modal({ isOpen, onClose, onSubmit }) {
               placeholder="Your full name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="bg-[#F4F1E8] border border-transparent rounded-[10px] px-4 py-3 font-body text-sm text-[#0A0A0A] outline-none w-full transition-all duration-200 focus:border-[#0D9E75] focus:bg-[#FAFAF7]"
+              className="neo-input px-4 py-3 font-body text-sm text-[#0A0A0A] outline-none w-full"
             />
           </div>
 
@@ -93,7 +120,7 @@ export default function Modal({ isOpen, onClose, onSubmit }) {
               placeholder="you@company.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-[#F4F1E8] border border-transparent rounded-[10px] px-4 py-3 font-body text-sm text-[#0A0A0A] outline-none w-full transition-all duration-200 focus:border-[#0D9E75] focus:bg-[#FAFAF7]"
+              className="neo-input px-4 py-3 font-body text-sm text-[#0A0A0A] outline-none w-full"
             />
           </div>
 
@@ -105,7 +132,7 @@ export default function Modal({ isOpen, onClose, onSubmit }) {
               placeholder="+91 98765 43210"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="bg-[#F4F1E8] border border-transparent rounded-[10px] px-4 py-3 font-body text-sm text-[#0A0A0A] outline-none w-full transition-all duration-200 focus:border-[#0D9E75] focus:bg-[#FAFAF7]"
+              className="neo-input px-4 py-3 font-body text-sm text-[#0A0A0A] outline-none w-full"
             />
           </div>
 
@@ -117,7 +144,7 @@ export default function Modal({ isOpen, onClose, onSubmit }) {
               placeholder="Your company"
               value={company}
               onChange={(e) => setCompany(e.target.value)}
-              className="bg-[#F4F1E8] border border-transparent rounded-[10px] px-4 py-3 font-body text-sm text-[#0A0A0A] outline-none w-full transition-all duration-200 focus:border-[#0D9E75] focus:bg-[#FAFAF7]"
+              className="neo-input px-4 py-3 font-body text-sm text-[#0A0A0A] outline-none w-full"
             />
           </div>
 
@@ -127,7 +154,7 @@ export default function Modal({ isOpen, onClose, onSubmit }) {
             <select
               value={industry}
               onChange={(e) => setIndustry(e.target.value)}
-              className="bg-[#F4F1E8] border border-transparent rounded-[10px] px-4 py-3 font-body text-sm text-[#0A0A0A] outline-none w-full transition-all duration-200 focus:border-[#0D9E75] focus:bg-[#FAFAF7] cursor-pointer"
+              className="neo-input px-4 py-3 font-body text-sm text-[#0A0A0A] outline-none w-full cursor-pointer"
             >
               <option value="">Select your industry</option>
               {['Technology / SaaS', 'Retail / E-Commerce', 'Healthcare', 'Finance / Fintech', 'Education', 'Real Estate', 'Hospitality', 'Manufacturing', 'Other'].map((opt) => (
@@ -146,10 +173,10 @@ export default function Modal({ isOpen, onClose, onSubmit }) {
                   <div
                     key={svc}
                     onClick={() => toggleService(svc)}
-                    className={`flex items-center gap-2 cursor-pointer py-[9px] px-3 rounded-lg border text-[13px] select-none transition-all duration-200 ${
+                    className={`neo-input flex items-center gap-2 cursor-pointer py-[9px] px-3 text-[13px] select-none ${
                       checked
-                        ? 'border-[#0D9E75] bg-[#E1F5EE] text-[#085041]'
-                        : 'border-[rgba(10,10,10,0.1)] text-[#444] hover:border-[#0D9E75]'
+                        ? 'border-black bg-[#E1F5EE] text-black shadow-[1px_1px_0_#000] translate-x-[2px] translate-y-[2px]'
+                        : 'text-[#444]'
                     }`}
                   >
                     <div className={`w-4 h-4 rounded-[4px] border flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
@@ -172,19 +199,20 @@ export default function Modal({ isOpen, onClose, onSubmit }) {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               rows={4}
-              className="bg-[#F4F1E8] border border-transparent rounded-[10px] px-4 py-3 font-body text-sm text-[#0A0A0A] outline-none w-full transition-all duration-200 focus:border-[#0D9E75] focus:bg-[#FAFAF7] resize-y min-h-[100px]"
+              className="neo-input px-4 py-3 font-body text-sm text-[#0A0A0A] outline-none w-full resize-y min-h-[100px]"
             />
           </div>
 
           {/* Submit */}
           <button
             onClick={handleSubmit}
-            className="col-span-2 max-md:col-span-1 bg-[#0A0A0A] text-[#FAFAF7] border-none py-4 px-8 rounded-full font-body text-[15px] font-medium cursor-pointer transition-all duration-200 w-full mt-2 hover:bg-[#0D9E75] hover:-translate-y-px"
+            className="col-span-2 max-md:col-span-1 neo-button w-full mt-2 cursor-pointer transition-all duration-200"
           >
             Submit Request →
           </button>
         </div>
       </div>
     </div>
+  </div>
   )
 }

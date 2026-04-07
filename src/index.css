@@ -9,11 +9,12 @@
 
   html {
     scroll-behavior: smooth;
+    background: #0A0A0A;
   }
 
   body {
     font-family: 'Manrope', sans-serif;
-    background: #FAFAF7;
+    background: #0A0A0A;
     color: #0A0A0A;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -113,5 +114,353 @@
   .step-fade.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Glitch Button (Uiverse) */
+  .btn-glitch {
+    display: inline-block;
+    font-family: "Sora", "VT323", monospace;
+    border: 1px solid #0D9E75;
+    background-color: #0D9E75;
+    color: #FAFAF7;
+    padding: 14px 28px;
+    min-width: 175px;
+    line-height: 1.5em;
+    white-space: nowrap;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .btn-glitch .text,
+  .btn-glitch .decoration {
+    display: inline-block;
+  }
+
+  .btn-glitch .decoration {
+    display: inline-block;
+    float: right;
+    margin-left: 10px;
+  }
+
+  .btn-glitch:hover,
+  .btn-glitch:focus {
+    animation-name: glitch;
+    animation-duration: 0.2s;
+    background-color: yellow;
+    color: rgb(17, 17, 17);
+    border: 1px solid yellow;
+  }
+
+  .btn-glitch:hover .text-decoration,
+  .btn-glitch:focus .text-decoration,
+  .btn-glitch:hover .decoration,
+  .btn-glitch:focus .decoration {
+    animation-name: blink;
+    animation-duration: 0.1s;
+    animation-iteration-count: infinite;
+  }
+
+  .btn-glitch:active {
+    background: none;
+    color: yellow;
+  }
+
+  .btn-glitch:active .text-decoration,
+  .btn-glitch:active .decoration {
+    animation-name: none;
+  }
+
+  @keyframes glitch {
+    25% {
+      background-color: red;
+      transform: translateX(-10px);
+      letter-spacing: 10px;
+    }
+    35% {
+      background-color: green;
+      transform: translate(10px);
+    }
+    59% {
+      opacity: 0;
+    }
+    60% {
+      background-color: blue;
+      transform: translate(-10px);
+      filter: blur(5px);
+    }
+    100% {
+      background-color: yellow;
+      filter: blur(5px);
+    }
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  @keyframes shrink {
+    100% { width: 10%; }
+  }
+
+  /* Neo-Brutalism Modal */
+  .neo-modal {
+    --primary: #F97FA8; /* theme pink */
+    --secondary: #0D9E75; /* theme green */
+    --text: #0A0A0A;
+    --bg: #FAFAF7;
+    --shadow-color: rgba(10, 10, 10, 1);
+    
+    background: var(--bg);
+    border: 4px solid var(--text);
+    border-radius: 12px;
+    box-shadow: 12px 12px 0 var(--shadow-color);
+  }
+
+  .neo-modal::before {
+    content: "";
+    position: absolute;
+    top: -24px;
+    right: -24px;
+    width: 64px;
+    height: 64px;
+    background: var(--primary);
+    transform: rotate(45deg);
+    z-index: 10;
+    border: 3px solid var(--text);
+  }
+
+  .neo-modal::after {
+    content: "★";
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    color: var(--text);
+    font-size: 22px;
+    font-weight: bold;
+    z-index: 11;
+  }
+
+  .neo-modal .card-pattern-grid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+    background-size: 16px 16px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .neo-modal .bold-pattern {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .neo-modal .dots-pattern {
+    position: absolute;
+    bottom: 30px;
+    left: -20px;
+    width: 120px;
+    height: 60px;
+    opacity: 0.3;
+    transform: rotate(-10deg);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .neo-modal .accent-shape {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: var(--secondary);
+    border: 3px solid var(--text);
+    border-radius: 6px;
+    transform: rotate(45deg);
+    bottom: -15px;
+    right: 40px;
+    z-index: 0;
+  }
+  
+  .neo-modal .corner-slice {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 28px;
+    height: 28px;
+    background: var(--bg);
+    border-right: 4px solid var(--text);
+    border-top: 4px solid var(--text);
+    border-radius: 0 8px 0 0;
+    z-index: 1;
+  }
+
+  .neo-input {
+    background: #fff;
+    border: 2px solid var(--text) !important;
+    border-radius: 6px !important;
+    box-shadow: 3px 3px 0 var(--text);
+    transition: all 0.2s ease !important;
+  }
+  
+  .neo-input:focus {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--text);
+    background: #fff !important;
+  }
+
+  .neo-button {
+    background: var(--secondary) !important;
+    color: #fff !important;
+    border: 3px solid var(--text) !important;
+    border-radius: 6px !important;
+    box-shadow: 6px 6px 0 var(--text) !important;
+    text-transform: uppercase;
+    font-weight: 800 !important;
+    letter-spacing: 0.05em;
+    padding: 16px !important;
+  }
+
+  .neo-button:hover {
+    transform: translate(-3px, -3px) !important;
+    box-shadow: 9px 9px 0 var(--text) !important;
+    background: #0bb876 !important;
+  }
+
+  .neo-button:active {
+    transform: translate(4px, 4px) !important;
+    box-shadow: 2px 2px 0 var(--text) !important;
+  }
+
+  /* 3D Neo-Brutalism Card (Services) */
+  .service-parent {
+    perspective: 1000px;
+    width: 100%;
+  }
+
+  .neo-3d-card {
+    padding-top: 50px;
+    border: 3px solid #FAFAF7; /* Light border on dark card */
+    transform-style: preserve-3d;
+    background: linear-gradient(135deg, rgba(0,0,0,0) 18.75%, #1c1c1c 0 31.25%, rgba(0,0,0,0) 0),
+      repeating-linear-gradient(45deg, #1C1C1C -6.25% 6.25%, #ffffff 0 18.75%);
+    background-size: 60px 60px;
+    background-position: 0 0, 0 0;
+    background-color: #0b0b0b;
+    width: 100%;
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 30px 30px -10px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .neo-3d-card:hover {
+    background-position: -100px 100px, -100px 100px;
+    transform: rotate3d(0.5, 1, 0, 30deg);
+  }
+
+  .neo-3d-card .content-box {
+    background: #0D9E75;
+    transition: all 0.5s ease-in-out;
+    padding: 60px 25px 25px 25px;
+    transform-style: preserve-3d;
+    height: 100%;
+    min-height: 250px;
+  }
+
+  .neo-3d-card .content-box .card-title {
+    display: inline-block;
+    color: #FAFAF7;
+    font-size: 24px;
+    font-weight: 900;
+    transition: all 0.5s ease-in-out;
+    transform: translate3d(0px, 0px, 50px);
+  }
+
+  .neo-3d-card .content-box .card-title:hover {
+    transform: translate3d(0px, 0px, 60px);
+  }
+
+  .neo-3d-card .content-box .card-content {
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #050505;
+    transition: all 0.5s ease-in-out;
+    transform: translate3d(0px, 0px, 30px);
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .neo-3d-card .content-box .card-content li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .neo-3d-card .content-box .card-content li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background-color: #FAFAF7;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .neo-3d-card .content-box .card-content:hover {
+    transform: translate3d(0px, 0px, 60px);
+  }
+
+  .neo-3d-card .content-box .see-more {
+    cursor: pointer;
+    margin-top: 1.5rem;
+    display: inline-block;
+    font-weight: 900;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #0D9E75 !important;
+    background: #FAFAF7;
+    padding: 0.8rem 1rem;
+    transition: all 0.5s ease-in-out;
+    transform: translate3d(0px, 0px, 20px);
+    text-decoration: none;
+    border: 2px solid #050505;
+    box-shadow: 3px 3px 0 #050505;
+  }
+
+  .neo-3d-card .content-box .see-more:hover {
+    transform: translate3d(0px, 0px, 60px) translate(-2px, -2px);
+    box-shadow: 5px 5px 0 #050505;
+  }
+
+  .neo-3d-card .date-box {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    height: 60px;
+    width: 60px;
+    background: #FAFAF7;
+    border: 3px solid #050505;
+    padding: 10px;
+    transform: translate3d(0px, 0px, 80px);
+    box-shadow: 5px 5px 0 #050505;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0D9E75;
+  }
+
+  .neo-3d-card .date-box svg {
+    width: 100%;
+    height: 100%;
   }
 }
