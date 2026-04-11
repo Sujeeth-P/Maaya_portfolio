@@ -29,13 +29,13 @@ export default function Why({ onOpenModal }) {
   }, [])
 
   return (
-    <section id="why" className="min-h-screen flex items-center pt-5 pb-10 px-12 max-md:py-16 max-md:px-6">
+    <section id="why"style={{backgroundColor:"#F3F0E7"}} className="min-h-screen flex items-center pt-5 pb-10 px-12 max-md:py-16 max-md:px-6">
       <div className="grid grid-cols-2 gap-16 items-center max-w-[1280px] mx-auto w-full max-md:grid-cols-1 max-md:gap-10">
 
         {/* Left text */}
         <div>
           {/* <div className="section-eyebrow">Why Maayay</div> */}
-          <h2 style={{color:"white"}} className="font-display text-[clamp(28px,3.5vw,48px)] font-extrabold tracking-[-0.03em] leading-[1.1] text-[#0A0A0A] mb-3">
+          <h2 className="font-display text-[clamp(28px,3.5vw,48px)] font-extrabold tracking-[-0.03em] leading-[1.1] text-[#0A0A0A] mb-3">
             Why Choose Maayay
           </h2>
           <p className="pb-7 pt-5 text-[15px] font-light leading-[1.7] text-[#555] max-w-[600px] mb-6">

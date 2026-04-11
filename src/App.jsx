@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef } from 'react'
-import Navbar from './components/Navbar.jsx'
+import Navbar from './components/Navbar'
 import Hero from './components/Hero.jsx'
 import Services from './components/Services.jsx'
 import Process from './components/Process.jsx'

@@ -1,31 +1,54 @@
-export default function Navbar({ onOpenModal }) {
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-12 h-[68px] bg-[rgba(10,10,10,0.92)] backdrop-blur-md border-b border-[rgba(10,10,10,0.1)] transition-colors duration-300">
-      <a href="#" className="font-display text-[22px] font-extrabold text-[#FAFAF7] no-underline tracking-tight">
-        Maayay<span className="text-teal">.</span>
-      </a>
+import React from "react";
+import { Briefcase, GitBranch, User, Users, MessageCircle, HelpCircle } from "lucide-react";
+import TiltedDock from "./ui/tilted-dock";
+import { useNavTheme } from "../hooks/useNavTheme";
 
-      <ul className="hidden md:flex items-center gap-9 list-none">
-        {['Services', 'Process', 'About', 'Clients', 'FAQ'].map((item) => (
-          <li key={item}>
-            <a
-              href={`#${item.toLowerCase()}`}
-              className="text-sm font-normal text-white/50 no-underline transition-colors duration-200 hover:text-white"
-            >
-              {item}
-            </a>
-          </li>
-        ))}
-        <li>
-          <a
-            href="#"
-            onClick={(e) => { e.preventDefault(); onOpenModal() }}
-            className="bg-teal text-white px-[22px] py-2.5 rounded-lg font-semibold text-sm no-underline transition-all duration-200 hover:bg-[#0bb876] hover:-translate-y-px"
+export default function Navbar({ onOpenModal }) {
+  const isLight = useNavTheme(68);
+
+  const navItems = [
+    { id: 1, icon: <Briefcase size={24} />, label: "Services", href: "#services" },
+    { id: 2, icon: <GitBranch size={24} />, label: "Process", href: "#process" },
+    { id: 3, icon: <User size={24} />, label: "About", href: "#why" },
+    { id: 4, icon: <Users size={24} />, label: "Clients", href: "#clients" },
+    { id: 5, icon: <HelpCircle size={24} />, label: "FAQ", href: "#faq" },
+    { 
+      id: 6, 
+      icon: <MessageCircle size={24} />, 
+      label: "Consult", 
+      onClick: onOpenModal 
+    },
+  ];
+
+  return (
+    <>
+      <nav className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-12 h-[68px] bg-transparent pointer-events-none transition-colors duration-500">
+        <div className="pointer-events-auto">
+          <a 
+            href="#" 
+            className={`font-display text-[22px] font-extrabold no-underline tracking-tight transition-colors duration-300 ${
+              isLight ? 'text-[#0A0A0A]' : 'text-[#FAFAF7]'
+            }`}
           >
-            Book a Consultation
+            Maayay<span className="text-teal">.</span>
           </a>
-        </li>
-      </ul>
-    </nav>
-  )
+        </div>
+
+        <div className="hidden md:block pointer-events-auto">
+          {/* <button
+            onClick={onOpenModal}
+            className={`px-[22px] py-2.5 rounded-lg font-semibold text-sm no-underline transition-all duration-300 hover:-translate-y-px ${
+              isLight 
+                ? 'bg-[#0A0A0A] text-white hover:bg-[#222]' 
+                : 'bg-teal text-white hover:bg-[#0bb876]'
+            }`}
+          >
+            Get Started
+          </button> */}
+        </div>
+      </nav>
+
+      <TiltedDock items={navItems} />
+    </>
+  );
 }
