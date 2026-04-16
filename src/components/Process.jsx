@@ -95,7 +95,7 @@ export default function Process() {
       ref={sectionRef}
       id="process"
       style={{
-        background:    '#F4F1E8',
+        background:    '#E5FCCD',
         minHeight:     '100vh',
         overflow:      'hidden',       // clips cards flying in from right
         display:       'flex',
@@ -108,7 +108,7 @@ export default function Process() {
       {/* ── Heading block ── */}
       <div style={{ textAlign: 'center', marginBottom: 'clamp(32px,4vw,56px)', width: '100%' }}>
         <h2
-          className="font-display font-extrabold text-[#0A0A0A]"
+          className="font-display font-extrabold text-[#084734]"
           style={{
             fontSize:      'clamp(28px,3.5vw,48px)',
             letterSpacing: '-0.03em',
@@ -159,9 +159,9 @@ export default function Process() {
               top:        i * STEP_Y,
               width:      CARD_W,
               height:     CARD_H,
-              background: '#FAFAF7',
-              border:     '1.5px solid rgba(10,10,10,0.13)',
-              boxShadow:  '0 4px 32px rgba(10,10,10,0.06)',
+              background: '#F3F0E7',
+              border:     '1.5px solid rgba(8,71,52,0.15)',
+              boxShadow:  '0 4px 32px rgba(8,71,52,0.08)',
               willChange: 'transform, opacity',
             }}
           >
@@ -174,7 +174,7 @@ export default function Process() {
                 left:          26,
                 fontSize:      'clamp(60px,7vw,92px)',
                 lineHeight:    1,
-                color:         '#0D9E75',
+                color:         '#084734',
                 letterSpacing: '-0.04em',
               }}
             >
@@ -191,7 +191,7 @@ export default function Process() {
               }}
             >
               <p
-                className="font-display font-extrabold uppercase text-[#0A0A0A]"
+                className="font-display font-extrabold uppercase text-[#084734]"
                 style={{
                   fontSize:      'clamp(13px,1.6vw,20px)',
                   letterSpacing: '-0.01em',
@@ -204,7 +204,7 @@ export default function Process() {
               <p
                 style={{
                   fontSize:   12,
-                  color:      '#8A8880',
+                  color:      '#084734',
                   fontWeight: 300,
                   lineHeight: 1.65,
                 }}

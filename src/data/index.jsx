@@ -67,10 +67,41 @@ export const STEPS = [
 ]
 
 export const PILLARS = [
-  { icon: '⚙️', title: 'Modern Technology', desc: 'Built on proven, scalable tech stacks that grow with your business.', delay: '0s' },
-  { icon: '🎯', title: 'Strategic Thinking', desc: 'Every decision is tied to your business goals, not just aesthetics.', delay: '0.1s' },
-  { icon: '✦', title: 'Design-Driven', desc: 'Interfaces and visuals that build trust and communicate clearly.', delay: '0.2s' },
-  { icon: '🤝', title: 'Reliable Execution', desc: 'We deliver on time, with clear communication throughout.', delay: '0.3s' },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D9E75" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+      </svg>
+    ),
+    title: 'Modern Technology', desc: 'Built on proven, scalable tech stacks that grow with your business.', delay: '0s'
+  },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D9E75" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <circle cx="12" cy="12" r="6"/>
+        <circle cx="12" cy="12" r="2"/>
+      </svg>
+    ),
+    title: 'Strategic Thinking', desc: 'Every decision is tied to your business goals, not just aesthetics.', delay: '0.1s'
+  },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D9E75" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+      </svg>
+    ),
+    title: 'Design-Driven', desc: 'Interfaces and visuals that build trust and communicate clearly.', delay: '0.2s'
+  },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D9E75" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+    ),
+    title: 'Reliable Execution', desc: 'We deliver on time, with clear communication throughout.', delay: '0.3s'
+  },
 ]
 
 export const WHY_STATS = [

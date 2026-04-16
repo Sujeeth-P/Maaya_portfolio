@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero.jsx'
 import Services from './components/Services.jsx'
@@ -11,6 +11,7 @@ import Footer from './components/Footer.jsx'
 import Modal from './components/Modal.jsx'
 import ThankYou from './components/ThankYou.jsx'
 import MaayaIntro, { INTRO_SCROLL_HEIGHT } from './components/MaayaIntro.jsx'
+import WebGLDisplacementLayer from './components/WebGLDisplacementLayer.jsx'
 
 /**
  * ── Unified scroll architecture ───────────────────────────────────────────
@@ -49,6 +50,13 @@ export default function App() {
 
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [showThankYou, setShowThankYou] = useState(false)
+
+  // ── WebGL section displacement ────────────────────────────────────────────
+  // activeSectionId changes every time a new section enters the viewport,
+  // triggering a ripple burst in WebGLDisplacementLayer.
+  const [activeSectionId, setActiveSectionId] = useState(null)
+  // Stable ref so the IO callback always has the current heroReady value
+  const heroReadyRef = useRef(false)
 
   // ── Progress handler — called every frame from MaayaIntro ────────────────
   // Drives the hero opacity proportionally from HERO_FADE_START → HERO_FADE_END
@@ -93,6 +101,34 @@ export default function App() {
     }
   }, [])
 
+  // Sync heroReadyRef whenever heroReady changes
+  useEffect(() => { heroReadyRef.current = heroReady }, [heroReady])
+
+  // ── IntersectionObserver — fires WebGL ripple on each section entry ────────
+  // Only activates after the intro wipe-out completes (heroReady = true).
+  // threshold: 0.22 fires when ~22% of the section is in view, giving a
+  // slightly-early trigger that feels natural while scrolling at normal speed.
+  useEffect(() => {
+    const sections = document.querySelectorAll('section[id]')
+    if (!sections.length) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!heroReadyRef.current) return          // skip during intro
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.18) {
+            // Append timestamp to force re-trigger if same section re-enters
+            setActiveSectionId(`${entry.target.id}-${Date.now()}`)
+          }
+        })
+      },
+      { threshold: [0.18] }
+    )
+
+    sections.forEach((s) => observer.observe(s))
+    return () => observer.disconnect()
+  }, [])   // mount-once; heroReadyRef is a stable mutable ref
+
   const openModal = () => setIsModalOpen(true)
   const closeModal = () => setIsModalOpen(false)
 
@@ -113,6 +149,11 @@ export default function App() {
 
   return (
     <>
+      {/* ── WebGL displacement ripple — fires on each section entry ─────── */}
+      {/* Fixed, pointer-events:none, mix-blend-mode:screen.                  */}
+      {/* Must sit below the intro overlay (z=9999) so it doesn't obscure it */}
+      <WebGLDisplacementLayer activeSectionId={activeSectionId} />
+
       {/* ── Fixed intro overlay ─────────────────────────────────────────── */}
       {/* Always mounted. Self-manages opacity via scrollY. */}
       <MaayaIntro

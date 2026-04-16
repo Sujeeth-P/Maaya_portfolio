@@ -2,13 +2,13 @@ export default function FinalCTA({ onOpenModal }) {
   return (
     <section
       id="cta-final"
-      className="bg-[#0A0A0A] min-h-screen flex flex-col items-center justify-center text-center px-12 py-20 max-md:py-16 max-md:px-6 relative overflow-hidden"
+      className="bg-[#084734] min-h-screen flex flex-col items-center justify-center text-center px-12 py-20 max-md:py-16 max-md:px-6 relative overflow-hidden"
     >
       {/* Grid Pattern Background */}
       <div 
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
-          backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(to right, rgba(229,252,205,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(229,252,205,0.07) 1px, transparent 1px)`,
           backgroundSize: '20px 30px',
           WebkitMaskImage: 'radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)',
           maskImage: 'radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)',

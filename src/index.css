@@ -4,25 +4,26 @@
 
 @layer base {
   :root {
-    --background: 60 40% 97%;
-    --foreground: 0 0% 4%;
-    --card: 60 40% 98%;
-    --card-foreground: 0 0% 4%;
-    --popover: 60 40% 97%;
-    --popover-foreground: 0 0% 4%;
-    --primary: 163 85% 34%;
-    --primary-foreground: 60 40% 97%;
-    --secondary: 163 85% 34%;
-    --secondary-foreground: 60 40% 97%;
-    --muted: 60 40% 93%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 163 85% 34%;
-    --accent-foreground: 60 40% 97%;
+    /* New palette: #E5FCCD / #CEF17B / #084734 */
+    --background: 93 88% 96%;     /* #E5FCCD */
+    --foreground: 157 83% 18%;    /* #084734 */
+    --card: 93 88% 96%;
+    --card-foreground: 157 83% 18%;
+    --popover: 93 88% 96%;
+    --popover-foreground: 157 83% 18%;
+    --primary: 157 83% 18%;       /* #084734 */
+    --primary-foreground: 93 88% 96%;
+    --secondary: 84 85% 71%;      /* #CEF17B */
+    --secondary-foreground: 157 83% 18%;
+    --muted: 93 60% 90%;
+    --muted-foreground: 157 40% 40%;
+    --accent: 84 85% 71%;         /* #CEF17B */
+    --accent-foreground: 157 83% 18%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 60 40% 97%;
-    --border: 0 0% 4%;
-    --input: 0 0% 4%;
-    --ring: 163 85% 34%;
+    --destructive-foreground: 93 88% 96%;
+    --border: 157 83% 18%;
+    --input: 157 83% 18%;
+    --ring: 84 85% 71%;
     --radius: 0.5rem;
   }
 
@@ -56,13 +57,13 @@
 
   html {
     scroll-behavior: smooth;
-    background: #0A0A0A;
+    background: #084734;
   }
 
   body {
     font-family: 'Manrope', sans-serif;
-    background: #0A0A0A;
-    color: #0A0A0A;
+    background: #084734;
+    color: #084734;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
@@ -167,9 +168,9 @@
   .btn-glitch {
     display: inline-block;
     font-family: "Sora", "VT323", monospace;
-    border: 1px solid #0D9E75;
-    background-color: #0D9E75;
-    color: #FAFAF7;
+    border: 1px solid #084734;
+    background-color: #CEF17B;
+    color: #084734;
     padding: 14px 28px;
     min-width: 175px;
     line-height: 1.5em;
@@ -196,9 +197,9 @@
   .btn-glitch:focus {
     animation-name: glitch;
     animation-duration: 0.2s;
-    background-color: yellow;
-    color: rgb(17, 17, 17);
-    border: 1px solid yellow;
+    background-color: #E5FCCD;
+    color: #084734;
+    border: 1px solid #084734;
   }
 
   .btn-glitch:hover .text-decoration,
@@ -254,11 +255,11 @@
 
   /* Neo-Brutalism Modal */
   .neo-modal {
-    --primary: #F97FA8; /* theme pink */
-    --secondary: #0D9E75; /* theme green */
-    --text: #0A0A0A;
-    --bg: #FAFAF7;
-    --shadow-color: rgba(10, 10, 10, 1);
+    --primary: #CEF17B;  /* lime accent */
+    --secondary: #084734; /* forest green */
+    --text: #084734;
+    --bg: #E5FCCD;
+    --shadow-color: rgba(8, 71, 52, 0.9);
     
     background: var(--bg);
     border: 4px solid var(--text);
@@ -413,7 +414,7 @@
   }
 
   .neo-3d-card .content-box {
-    background: #0D9E75;
+    background: #084734;
     transition: all 0.5s ease-in-out;
     padding: 60px 25px 25px 25px;
     transform-style: preserve-3d;
@@ -474,14 +475,14 @@
     font-weight: 900;
     font-size: 11px;
     text-transform: uppercase;
-    color: #0D9E75 !important;
-    background: #FAFAF7;
+    color: #084734 !important;
+    background: #CEF17B;
     padding: 0.8rem 1rem;
     transition: all 0.5s ease-in-out;
     transform: translate3d(0px, 0px, 20px);
     text-decoration: none;
-    border: 2px solid #050505;
-    box-shadow: 3px 3px 0 #050505;
+    border: 2px solid #084734;
+    box-shadow: 3px 3px 0 #084734;
   }
 
   .neo-3d-card .content-box .see-more:hover {
@@ -495,15 +496,15 @@
     right: -15px;
     height: 60px;
     width: 60px;
-    background: #FAFAF7;
-    border: 3px solid #050505;
+    background: #E5FCCD;
+    border: 3px solid #084734;
     padding: 10px;
     transform: translate3d(0px, 0px, 80px);
-    box-shadow: 5px 5px 0 #050505;
+    box-shadow: 5px 5px 0 #084734;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #0D9E75;
+    color: #084734;
   }
 
   .neo-3d-card .date-box svg {
